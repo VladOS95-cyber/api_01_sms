@@ -15,9 +15,10 @@ secret_twilio_token = os.getenv('TWILIO_TOKEN')
 account_sid = os.getenv('ACCOUNT_SID')
 access_token = os.getenv('ACCESS_TOKEN')
 number_from = os.getenv('NUMBER_FROM')
-number_to= os.getenv('NUMBER_TO')
+number_to = os.getenv('NUMBER_TO')
 
 client = Client(account_sid, secret_twilio_token)
+
 
 def get_status(user_id):
     params = {
@@ -40,8 +41,8 @@ def send_sms(sms_text):
 
 
 if __name__ == '__main__':
-   vk_id = input('Введите id ')
-   while True:
+    vk_id = input('Введите id ')
+    while True:
         if get_status(vk_id) == 1:
             send_sms(f'{vk_id} сейчас онлайн!')
             break
